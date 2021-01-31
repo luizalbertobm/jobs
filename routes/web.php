@@ -18,5 +18,25 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    return view('new');
-});
+    return view('jobs');
+})->name('main');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
+Route::get('/jobs', function () {
+    return view('jobs');
+})->name('jobs');
+
+Route::get('/departments', function () {
+    return view('departments');
+})->name('departments');
+
+Route::get('/employees', function () {
+    return view('employees');
+})->name('employees');
+
+Route::get('/job-history', function () {
+    return view('job-history');
+})->name('job-history');
