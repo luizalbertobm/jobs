@@ -8,7 +8,7 @@
     <meta name="description" content="Jobs Platform">
     <meta name="author" content="Luiz Alberto B. Mesquita">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
