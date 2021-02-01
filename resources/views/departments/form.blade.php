@@ -5,7 +5,6 @@
 
 <form method="POST" action="{{route('departments')}}">
     @if (isset($department->id))
-    <h2>teste</h2>
     @method('PUT')
     <input type="hidden" name="id" value="{{$department->id}}">
     @endif
@@ -24,7 +23,6 @@
         <select name="manager_id" id="manager_id" class="form-control">
             <option value="">- Select one -</option>
             @foreach($employees as $e)
-
             <option {{(isset($department->manager_id) && $department->manager_id == $e->id)
                 || old('manager_id') == $e->id ? 'selected': '' }} value="{{$e->id}}">{{$e->first_name}}
                 {{$e->last_name}}</option>

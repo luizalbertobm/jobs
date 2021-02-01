@@ -1,7 +1,10 @@
 @extends('_template.index')
 
 @section('content')
-<div class="row">
-    <h1>Job History</h1>
-</div>
+
+<h1>Job History</h1>
+
+<h3>Coming soon!</h3>
+<p>Under development...</p>
+
 @endsection

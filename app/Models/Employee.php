@@ -9,6 +9,9 @@ class Employee extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['first_name', 'last_name','email','phone',
+    'hire_date','job_id','salary','commission','manager_id','department_id'];
+
     public function getFullName()
     {
         return "$this->first_name $this->last_name";

@@ -5,7 +5,6 @@
 
 <form method="POST" action="{{route('jobs')}}">
     @if (isset($job->id))
-    <h2>teste</h2>
     @method('PUT')
     <input type="hidden" name="id" value="{{$job->id}}">
     @endif
@@ -20,7 +19,7 @@
         @endif
     </div>
     <div class="row">
-        <div class="col-6">
+        <div class="col-md-4">
             <div class="form-group">
                 <label for="min_salary">Min. Salary</label>
                 <input type="text" value="{{$job->min_salary ?? old('min_salary')}}" name="min_salary" maxlength="30"
@@ -30,7 +29,7 @@
                 @endif
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-4">
             <div class="form-group">
                 <label for="max_salary">Max. Salary</label>
                 <input type="text" value="{{$job->max_salary ?? old('max_salary')}}" name="max_salary" maxlength="30"

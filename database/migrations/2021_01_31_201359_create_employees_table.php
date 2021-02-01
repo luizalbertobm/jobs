@@ -19,7 +19,7 @@ class CreateEmployeesTable extends Migration
             $table->string('last_name', 25);
             $table->string('email', 25);
             $table->string('phone', 20);
-            $table->date('hide_date');
+            $table->date('hire_date');
             $table->foreignId('job_id');
             $table->decimal('salary');
             $table->decimal('commission');
