@@ -21,6 +21,6 @@ class Employee extends Model
 
     public function getJob()
     {
-        return Job::find($this->job_id);
+        return Job::withTrashed()->find($this->job_id);
     }
 }

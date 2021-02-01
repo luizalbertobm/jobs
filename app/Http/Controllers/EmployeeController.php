@@ -58,7 +58,7 @@ class EmployeeController extends Controller
 
         $request->validate($rules);
         Employee::create($request->all());
-        return redirect()->route('employees.list')->with('message', 'Created successyfully');
+        return redirect()->route('employees.list')->with('success', 'Created successyfully');
     }
 
     /**
@@ -113,7 +113,7 @@ class EmployeeController extends Controller
         $request->validate($rules);
         $department = Employee::find($request->id);
         $department->update($request->all());
-        return redirect()->route('employees.list')->with('message', 'Updated successyfully');
+        return redirect()->route('employees.list')->with('success', 'Updated successyfully');
     }
 
     /**
@@ -125,6 +125,6 @@ class EmployeeController extends Controller
     public function destroy(Employee $employee)
     {
         $employee->delete();
-        return redirect()->back()->with('message', 'The item was removed');
+        return redirect()->back()->with('success', 'Removed successyfully');
     }
 }

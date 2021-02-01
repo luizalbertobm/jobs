@@ -6,6 +6,8 @@
 </a>
 <h1>Departments</h1>
 
+@include('_template.alert')
+
 <table class="table table-striped table-sm table-bordered">
     <thead class="">
         <tr>
@@ -23,10 +25,13 @@
             <td>{{$d->getManager()->getFullName()}}</td>
             <td class="text-right">
                 <a class="btn btn-sm btn-secondary" href="{{route('departments.edit', ['department' => $d->id])}}"><i data-feather="edit"></i></a>
-                <a class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')"
-                    href="{{route('departments.destroy', $d->id)}}">
-                    <i data-feather="trash"></i>
-                </a>
+                <form action="{{ route('departments.destroy', $d->id) }}" class="float-right ml-1" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Are you sure?')">
+                        <i data-feather="trash"></i>
+                    </button>
+                </form>
             </td>
         </tr>
         @endForeach

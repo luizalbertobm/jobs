@@ -50,7 +50,7 @@ class DepartmentController extends Controller
 
         $request->validate($rules, $feedback);
         Department::create($request->all());
-        return redirect()->route('departments.list')->with('success_message', 'Created successyfully');
+        return redirect()->route('departments.list')->with('success', 'Created successyfully');
     }
 
     /**
@@ -98,7 +98,7 @@ class DepartmentController extends Controller
         $request->validate($rules, $feedback);
         $department = Department::find($request->id);
         $department->update($request->all());
-        return redirect()->route('departments.list')->with('success_message', 'Updated successyfully');
+        return redirect()->route('departments.list')->with('success', 'Updated successyfully');
     }
 
     /**
@@ -110,6 +110,6 @@ class DepartmentController extends Controller
     public function destroy(Request $request, Department $department)
     {
         $department->delete();
-        return redirect()->back()->with('success_message', 'Created successyfully');
+        return redirect()->back()->with('success', 'Removed successyfully');
     }
 }

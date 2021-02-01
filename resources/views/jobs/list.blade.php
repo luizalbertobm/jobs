@@ -5,6 +5,9 @@
     <i data-feather="plus"></i> Create new
 </a>
 <h1>Jobs</h1>
+
+@include('_template.alert')
+
 <table class="table table-striped table-sm table-bordered">
     <thead class="">
         <tr>
@@ -24,10 +27,13 @@
             <td>{{$item->max_salary}}</td>
             <td class="text-right">
                 <a class="btn btn-sm btn-secondary" href="{{route('jobs.edit', ['job' => $item->id])}}"><i data-feather="edit"></i></a>
-                <a class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')"
-                    href="{{route('jobs.destroy', $item->id)}}">
-                    <i data-feather="trash"></i>
-                </a>
+                <form action="{{ route('jobs.destroy', $item->id) }}" class="float-right ml-1" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Are you sure?')">
+                        <i data-feather="trash"></i>
+                    </button>
+                </form>
             </td>
         </tr>
         @endForeach

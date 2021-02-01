@@ -45,7 +45,7 @@ class JobController extends Controller
 
         $request->validate($rules);
         Job::create($request->all());
-        return redirect()->route('jobs.list')->with('success_message', 'Created successyfully');
+        return redirect()->route('jobs.list')->with('success', 'Created successyfully');
     }
 
     /**
@@ -88,7 +88,7 @@ class JobController extends Controller
         $request->validate($rules);
         $department = Job::find($request->id);
         $department->update($request->all());
-        return redirect()->route('jobs.list')->with('success_message', 'Updated successyfully');
+        return redirect()->route('jobs.list')->with('success', 'Updated successyfully');
     }
 
     /**
@@ -100,6 +100,6 @@ class JobController extends Controller
     public function destroy(Job $job)
     {
         $job->delete();
-        return redirect()->back()->with('success_message', 'Created successyfully');
+        return redirect()->back()->with('success', 'Removed successyfully');
     }
 }

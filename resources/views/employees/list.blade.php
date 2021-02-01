@@ -6,14 +6,8 @@
 </a>
 <h1>Employees</h1>
 
-@if(session()->has('message'))
-<div class="alert alert-success">
-    {{session('message')}}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-@endif
+@include('_template.alert')
+
 <div class="table-responsive">
     <table class="table table-striped table-sm table-bordered table-hover">
         <thead class="">
