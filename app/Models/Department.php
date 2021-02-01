@@ -15,6 +15,6 @@ class Department extends Model
 
     public function getManager()
     {
-        return Employee::find($this->manager_id);
+        return Employee::withTrashed()->find($this->manager_id);
     }
 }
