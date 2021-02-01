@@ -1,6 +1,9 @@
 @extends('_template.index')
 
 @section('content')
+<a href="{{route('jobs.create')}}" class="btn btn-primary float-right">
+    <i data-feather="plus"></i> Create new
+</a>
 <h1>Jobs</h1>
 <table class="table table-striped table-sm table-bordered">
     <thead class="">
@@ -30,9 +33,7 @@
         @endForeach
     </tbody>
 </table>
-<a href="{{route('jobs.create')}}" class="btn btn-primary float-right">
-    <i data-feather="plus"></i> Create a new
-</a>
+
 {{$items->links()}}
 Showing {{$items->firstItem()}} - {{$items->lastItem()}} from {{$items->total()}}
 @endsection

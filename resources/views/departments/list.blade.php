@@ -1,6 +1,9 @@
 @extends('_template.index')
 
 @section('content')
+<a href="{{route('departments.create')}}" class="btn btn-primary float-right">
+    <i data-feather="plus"></i> Create new
+</a>
 <h1>Departments</h1>
 
 <table class="table table-striped table-sm table-bordered">
@@ -29,9 +32,6 @@
         @endForeach
     </tbody>
 </table>
-<a href="{{route('departments.create')}}" class="btn btn-primary float-right">
-    <i data-feather="plus"></i> Create a new
-</a>
 {{$departments->links()}}
 Showing {{$departments->firstItem()}} - {{$departments->lastItem()}} from {{$departments->total()}}
 @endsection
