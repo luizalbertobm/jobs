@@ -25,8 +25,9 @@ Route::get('/jobs', function () {
 Route::get('/departments', [DepartmentController::class, 'index'])->name('departments.list');
 Route::get('/departments/create', [DepartmentController::class, 'create'])->name('departments.create');
 Route::post('/departments', [DepartmentController::class, 'store'])->name('departments');
-// Route::get('/departments/{department}', [DepartmentController::class, 'edit'])->name('departments.edit');
-Route::get('/departments/{department}', [DepartmentController::class, 'destroy'])->name('departments.destroy');
+Route::put('/departments', [DepartmentController::class, 'update'])->name('departments');
+Route::get('/departments/{department}', [DepartmentController::class, 'edit'])->name('departments.edit');
+Route::delete('/departments/{department}', [DepartmentController::class, 'destroy'])->name('departments.destroy');
 
 Route::get('/employees', function () {
     return view('employees');

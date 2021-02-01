@@ -4,10 +4,12 @@
 <h1>Departments</h1>
 
 <form method="POST" action="{{route('departments')}}">
+    @method('PUT')
     @csrf
+    <input type="hidden" name="id" value="{{$department->id}}">
     <div class="form-group">
         <label for="name">Department name</label>
-        <input type="text" value="{{old('name')}}" name="name" maxlength="30" class="form-control"
+        <input type="text" value="{{$department->name ?? old('name')}}" name="name" maxlength="30" class="form-control"
             aria-describedby="nameHelp">
         @if ($errors->has('name'))
         <small id="nameHelp" class="form-text text-danger">{{$errors->first('name')}} </small>
@@ -18,7 +20,8 @@
         <select name="manager_id" id="manager_id" class="form-control">
             <option value="">Select one</option>
             @foreach($employees as $e)
-            <option {{old('manager_id') == $e->id ? 'selected': '' }} value="{{$e->id}}">{{$e->first_name}}
+
+            <option {{$department->manager_id == $e->id || old('manager_id') == $e->id ? 'selected': '' }} value="{{$e->id}}">{{$e->first_name}}
                 {{$e->last_name}}</option>
             @endForeach
         </select>
@@ -29,9 +32,7 @@
 
     @if ($errors->any())
     <div class="alert alert-danger">
-        @foreach ($errors->all() as $error)
-        {{$error}} <br>
-        @endforeach
+        Check the form errors
     </div>
     @endif
 

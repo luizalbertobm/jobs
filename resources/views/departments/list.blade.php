@@ -18,7 +18,7 @@
             <td>{{$d->name}}</td>
             <td>{{$d->getManager()->getFullName()}}</td>
             <td class="text-right">
-                <a class="btn btn-sm btn-secondary" href="{{route('departments')}}"><i data-feather="edit"></i></a>
+                <a class="btn btn-sm btn-secondary" href="{{route('departments.edit', ['department' => $d->id])}}"><i data-feather="edit"></i></a>
                 <a class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')"
                     href="{{route('departments.destroy', $d->id)}}">
                     <i data-feather="trash"></i>

@@ -73,7 +73,8 @@ class DepartmentController extends Controller
     public function edit(Department $department)
     {
         return view('departments.form', [
-            'employees' => Employee::all('first_name', 'last_name', 'id')
+            'employees' => Employee::all('first_name', 'last_name', 'id'),
+            'department' => $department
         ]);
     }
 
@@ -84,9 +85,20 @@ class DepartmentController extends Controller
      * @param  \App\Models\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Department $department)
+    public function update(Request $request)
     {
-        //
+        $rules = [
+            'name' => 'required|min:3|max:30|unique:departments',
+            'manager_id' => 'required'
+        ];
+        $feedback = [
+            'manager_id.required' => 'You must select one manager'
+        ];
+
+        $request->validate($rules, $feedback);
+        $department = Department::find($request->id);
+        $department->update($request->all());
+        return redirect()->route('departments.list')->with('success_message', 'Updated successyfully');
     }
 
     /**
