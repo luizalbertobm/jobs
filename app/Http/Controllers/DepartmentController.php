@@ -88,15 +88,15 @@ class DepartmentController extends Controller
     public function update(Request $request)
     {
         $rules = [
-            'name' => 'required|min:3|max:30|unique:departments',
+            'name' => 'required|min:3|max:30',
             'manager_id' => 'required'
         ];
         $feedback = [
             'manager_id.required' => 'You must select one manager'
         ];
 
-        $request->validate($rules, $feedback);
         $department = Department::find($request->id);
+        $request->validate($rules, $feedback);
         $department->update($request->all());
         return redirect()->route('departments.list')->with('success_message', 'Updated successyfully');
     }
