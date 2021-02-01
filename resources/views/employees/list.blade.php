@@ -7,8 +7,9 @@
     <thead class="">
         <tr>
             <th>ID</th>
-            <th>Nome</th>
-            <th>Manager</th>
+            <th>Name</th>
+            <th>E-mail</th>
+            <th>Phone</th>
             <th class="text-right">Actions</th>
         </tr>
     </thead>
@@ -16,8 +17,9 @@
         @foreach($entities as $item)
         <tr>
             <td>{{$item->id}}</td>
-            <td>{{$item->first_name}}</td>
-            <td>{{$item->last_name}}</td>
+            <td>{{$item->getFullName()}}</td>
+            <td>{{$item->email}}</td>
+            <td>{{$item->phone}}</td>
             <td class="text-right">
                 <a class="btn btn-sm btn-secondary" href="{{route('employees.edit', ['employee' => $item->id])}}"><i data-feather="edit"></i></a>
                 <a class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')"

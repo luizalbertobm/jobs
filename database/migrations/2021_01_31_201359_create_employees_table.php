@@ -23,7 +23,7 @@ class CreateEmployeesTable extends Migration
             $table->foreignId('job_id');
             $table->decimal('salary');
             $table->decimal('commission');
-            $table->foreignId('manager_id')->constrained('employees');
+            $table->foreignId('manager_id')->nullable()->constrained('employees');
             $table->foreignId('department_id');
             $table->timestamps();
         });

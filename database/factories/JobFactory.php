@@ -22,7 +22,9 @@ class JobFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->jobTitle,
+            'min_salary' => $this->faker->randomFloat(2, 650, 1000),
+            'max_salary' => $this->faker->randomFloat(2, 1000, 3000),
         ];
     }
 }
