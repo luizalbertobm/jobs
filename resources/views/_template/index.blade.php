@@ -43,12 +43,6 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('jobs')}}">
-                                <span data-feather="bar-chart-2"></span>
-                                Jobs
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="{{route('employees')}}">
                                 <span data-feather="users"></span>
                                 Employees
@@ -58,6 +52,12 @@
                             <a class="nav-link" href="{{route('departments')}}">
                                 <span data-feather="share-2"></span>
                                 Departments
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('jobs')}}">
+                                <span data-feather="bar-chart-2"></span>
+                                Jobs
                             </a>
                         </li>
                         <li class="nav-item">
