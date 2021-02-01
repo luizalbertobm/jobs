@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,12 +23,21 @@ Route::get('/jobs', function () {
     return view('jobs');
 })->name('jobs');
 
+// Departments
 Route::get('/departments', [DepartmentController::class, 'index'])->name('departments.list');
 Route::get('/departments/create', [DepartmentController::class, 'create'])->name('departments.create');
+Route::get('/departments/{department}', [DepartmentController::class, 'edit'])->name('departments.edit');
 Route::post('/departments', [DepartmentController::class, 'store'])->name('departments');
 Route::put('/departments', [DepartmentController::class, 'update'])->name('departments');
-Route::get('/departments/{department}', [DepartmentController::class, 'edit'])->name('departments.edit');
 Route::delete('/departments/{department}', [DepartmentController::class, 'destroy'])->name('departments.destroy');
+
+// Jobs
+Route::get('/jobs', [JobController::class, 'index'])->name('jobs.list');
+Route::get('/jobs/create', [JobController::class, 'create'])->name('jobs.create');
+Route::get('/jobs/{job}', [JobController::class, 'edit'])->name('jobs.edit');
+Route::post('/jobs', [JobController::class, 'store'])->name('jobs');
+Route::put('/jobs', [JobController::class, 'update'])->name('jobs');
+Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->name('jobs.destroy');
 
 Route::get('/employees', function () {
     return view('employees');

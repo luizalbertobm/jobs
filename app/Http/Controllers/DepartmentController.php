@@ -95,8 +95,8 @@ class DepartmentController extends Controller
             'manager_id.required' => 'You must select one manager'
         ];
 
-        $department = Department::find($request->id);
         $request->validate($rules, $feedback);
+        $department = Department::find($request->id);
         $department->update($request->all());
         return redirect()->route('departments.list')->with('success_message', 'Updated successyfully');
     }

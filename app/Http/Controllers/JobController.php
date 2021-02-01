@@ -14,7 +14,9 @@ class JobController extends Controller
      */
     public function index()
     {
-        //
+        return view('jobs.list', [
+            'items' => Job::paginate(8)
+        ]);
     }
 
     /**
@@ -24,7 +26,7 @@ class JobController extends Controller
      */
     public function create()
     {
-        //
+        return view('jobs.form');
     }
 
     /**
@@ -35,7 +37,15 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'title' => 'required|min:3|max:30',
+            'min_salary' => 'required|numeric|min:300',
+            'max_salary' => 'required|numeric|max:5000',
+        ];
+
+        $request->validate($rules);
+        Job::create($request->all());
+        return redirect()->route('jobs.list')->with('success_message', 'Created successyfully');
     }
 
     /**
@@ -57,7 +67,7 @@ class JobController extends Controller
      */
     public function edit(Job $job)
     {
-        //
+        return view('jobs.form', ['job' => $job]);
     }
 
     /**
@@ -69,7 +79,16 @@ class JobController extends Controller
      */
     public function update(Request $request, Job $job)
     {
-        //
+        $rules = [
+            'title' => 'required|min:3|max:30',
+            'min_salary' => 'required|numeric|min:300',
+            'max_salary' => 'required|numeric|max:5000',
+        ];
+
+        $request->validate($rules);
+        $department = Job::find($request->id);
+        $department->update($request->all());
+        return redirect()->route('jobs.list')->with('success_message', 'Updated successyfully');
     }
 
     /**
