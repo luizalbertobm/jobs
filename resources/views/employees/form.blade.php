@@ -128,8 +128,6 @@
         </div>
     </div>
 
-
-
     @if ($errors->any())
     <div class="alert alert-danger">
         Check the form errors

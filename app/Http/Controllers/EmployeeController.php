@@ -43,13 +43,20 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        // $rules = [
-        //     'title' => 'required|min:3|max:30',
-        //     'min_salary' => 'required|numeric|min:300',
-        //     'max_salary' => 'required|numeric|max:5000',
-        // ];
+        $rules = [
+            'first_name' => 'required|min:3|max:20',
+            'last_name' => 'required|min:3|max:25',
+            'email' => 'required|min:5|max:25',
+            'phone' => 'required|min:3|max:20',
+            'hire_date' => 'required|date|before_or_equal:'.date('Y-m-d'),
+            'job_id' => 'required|integer',
+            'salary' => 'required|numeric|min:0',
+            'commission' => 'required|numeric|min:0',
+            'manager_id' => 'required',
+            'department_id' => 'required',
+        ];
 
-        // $request->validate($rules);
+        $request->validate($rules);
         Employee::create($request->all());
         return redirect()->route('employees.list')->with('message', 'Created successyfully');
     }
@@ -90,13 +97,20 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        // $rules = [
-        //     'title' => 'required|min:3|max:30',
-        //     'min_salary' => 'required|numeric|min:300',
-        //     'max_salary' => 'required|numeric|max:5000',
-        // ];
+        $rules = [
+            'first_name' => 'required|min:3|max:20',
+            'last_name' => 'required|min:3|max:25',
+            'email' => 'required|min:5|max:25',
+            'phone' => 'required|min:3|max:20',
+            'hire_date' => 'required|date|before_or_equal:'.date('Y-m-d'),
+            'job_id' => 'required|integer',
+            'salary' => 'required|numeric|min:0',
+            'commission' => 'required|numeric|min:0',
+            'manager_id' => 'required',
+            'department_id' => 'required',
+        ];
 
-        // $request->validate($rules);
+        $request->validate($rules);
         $department = Employee::find($request->id);
         $department->update($request->all());
         return redirect()->route('employees.list')->with('message', 'Updated successyfully');
