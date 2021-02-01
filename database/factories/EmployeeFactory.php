@@ -27,7 +27,7 @@ class EmployeeFactory extends Factory
             'email' => strtolower($this->faker->firstName()).'@'.$this->faker->freeEmailDomain,
             'phone' => $this->faker->e164PhoneNumber,
             'hire_date' => $this->faker->dateTimeThisDecade($max = 'now'),
-            'job_id' => 1,
+            'job_id' => $this->faker->numberBetween(1,5),
             'salary' => $this->faker->randomFloat(2, 650, 3000),
             'commission' => $this->faker->randomFloat(2, 0, 400),
             'manager_id' => null,

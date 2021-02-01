@@ -37,31 +37,36 @@
                 <div class="sidebar-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{route('dashboard')}}">
+                            <a class="nav-link
+                                {{request()->routeIs('dashboard')? 'active':''}}" href="{{route('dashboard')}}">
                                 <span data-feather="home"></span>
                                 Dashboard <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('employees')}}">
+                            <a class="nav-link
+                                {{request()->routeIs('employees*')? 'active':''}}" href="{{route('employees')}}">
                                 <span data-feather="users"></span>
                                 Employees
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('departments')}}">
+                            <a class="nav-link
+                                {{request()->routeIs('departments*')? 'active':''}}" href="{{route('departments')}}">
                                 <span data-feather="share-2"></span>
                                 Departments
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('jobs')}}">
+                            <a class="nav-link
+                                {{request()->routeIs('jobs*')? 'active':''}}" href="{{route('jobs')}}">
                                 <span data-feather="bar-chart-2"></span>
                                 Jobs
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('job-history')}}">
+                            <a class="nav-link
+                                {{request()->routeIs('job-history*')? 'active':''}}" href="{{route('job-history')}}">
                                 <span data-feather="file"></span>
                                 Job History
                             </a>
