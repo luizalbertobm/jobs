@@ -26,9 +26,13 @@ mv .env.example .env
 ```bash
 vendor/bin/sail up
 ```
-6. So, run database migrations:
+6. Run database migrations:
 ```bash
 vendor/bin/sail artisan migrate
+```
+7. So, run database seeders:
+```bash
+vendor/bin/sail artisan db:seed
 ```
 ## Now just enjoy
 Access `http://localhost:8080/` on your browser.
