@@ -3,7 +3,6 @@
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\JobController;
-use App\Models\Employee;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,10 +44,6 @@ Route::get('/jobs/{job}', [JobController::class, 'edit'])->name('jobs.edit');
 Route::post('/jobs', [JobController::class, 'store'])->name('jobs');
 Route::put('/jobs', [JobController::class, 'update'])->name('jobs');
 Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->name('jobs.destroy');
-
-// Route::get('/employees', function () {
-//     return view('employees');
-// })->name('employees');
 
 Route::get('/job-history', function () {
     return view('job-history');
