@@ -1,6 +1,10 @@
 ## Jobs Platform
 Welcome to the Jobs Platform. The best application developed with Laravel Framework.
 
+## Requirements
+To run this application you need to have installed the following:
+- Composer (https://getcomposer.org/)
+- Docker (https://www.docker.com/get-started)
 ## How to run
 1. Clone this repository in your local machine:
 ```bash
