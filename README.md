@@ -31,4 +31,4 @@ vendor/bin/sail up
 vendor/bin/sail artisan migrate
 ```
 ## Now just enjoy
-Access `http://localhost/` on your browser.
+Access `http://localhost:8080/` on your browser.
