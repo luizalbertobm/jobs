@@ -4,9 +4,13 @@
 <h1>Departments</h1>
 
 <form method="POST" action="{{route('departments')}}">
+    @if (isset($department->id))
+    <h2>teste</h2>
     @method('PUT')
-    @csrf
     <input type="hidden" name="id" value="{{$department->id}}">
+    @endif
+
+    @csrf
     <div class="form-group">
         <label for="name">Department name</label>
         <input type="text" value="{{$department->name ?? old('name')}}" name="name" maxlength="30" class="form-control"
@@ -18,10 +22,11 @@
     <div class="form-group">
         <label for="manager_id">Manager</label>
         <select name="manager_id" id="manager_id" class="form-control">
-            <option value="">Select one</option>
+            <option value="">- Select one -</option>
             @foreach($employees as $e)
 
-            <option {{$department->manager_id == $e->id || old('manager_id') == $e->id ? 'selected': '' }} value="{{$e->id}}">{{$e->first_name}}
+            <option {{(isset($department->manager_id) && $department->manager_id == $e->id)
+                || old('manager_id') == $e->id ? 'selected': '' }} value="{{$e->id}}">{{$e->first_name}}
                 {{$e->last_name}}</option>
             @endForeach
         </select>
