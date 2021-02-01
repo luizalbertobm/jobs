@@ -75,6 +75,7 @@
             </main>
         </div>
     </div>
+    @yield('footer')
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -82,6 +83,7 @@
     <script>
         feather.replace()
     </script>
+    @yield('scripts')
 </body>
 
 </html>

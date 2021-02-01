@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Department;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
@@ -14,7 +15,9 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        //
+        return view('departments.list', [
+            'departments' => Department::paginate(8)
+        ]);
     }
 
     /**
@@ -22,9 +25,11 @@ class DepartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        return view('departments.form', [
+            'employees' => Employee::all('first_name', 'last_name', 'id')
+        ]);
     }
 
     /**
@@ -35,7 +40,17 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'name' => 'required|min:3|max:30|unique:departments',
+            'manager_id' => 'required'
+        ];
+        $feedback = [
+            'manager_id.required' => 'You must select one manager'
+        ];
+
+        $request->validate($rules, $feedback);
+        Department::create($request->all());
+        return redirect()->route('departments.list')->with('success_message', 'Created successyfully');
     }
 
     /**
@@ -57,7 +72,9 @@ class DepartmentController extends Controller
      */
     public function edit(Department $department)
     {
-        //
+        return view('departments.form', [
+            'employees' => Employee::all('first_name', 'last_name', 'id')
+        ]);
     }
 
     /**
@@ -78,8 +95,9 @@ class DepartmentController extends Controller
      * @param  \App\Models\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Department $department)
+    public function destroy(Request $request, Department $department)
     {
-        //
+        $department->delete();
+        return redirect()->back()->with('success_message', 'Created successyfully');
     }
 }

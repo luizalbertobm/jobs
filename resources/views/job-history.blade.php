@@ -1,4 +1,4 @@
-@extends('template.index')
+@extends('_template.index')
 
 @section('content')
 <div class="row">
