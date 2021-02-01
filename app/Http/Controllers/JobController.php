@@ -99,7 +99,7 @@ class JobController extends Controller
      */
     public function destroy(Job $job)
     {
-        $job->delete();
+        $job->sof();
         return redirect()->back()->with('success_message', 'Created successyfully');
     }
 }
