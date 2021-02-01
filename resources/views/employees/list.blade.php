@@ -50,5 +50,5 @@
     <i data-feather="plus"></i> Create a new
 </a>
 {{$entities->links()}}
-Showing {{$entities->firstItem()}} - {{$entities->lastItem()}} from {{$entities->total()}}
+Showing {{$entities->firstItem()}} to {{$entities->lastItem()}} out of {{$entities->total()}}
 @endsection
