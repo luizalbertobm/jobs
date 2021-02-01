@@ -16,4 +16,9 @@ class Employee extends Model
     {
         return "$this->first_name $this->last_name";
     }
+
+    public function getJob()
+    {
+        return Job::find($this->job_id);
+    }
 }

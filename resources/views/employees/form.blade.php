@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
-                <label for="first_name">First_name</label>
+                <label for="first_name">First name</label>
                 <input type="text" value="{{$employee->first_name ?? old('first_name')}}" name="first_name" maxlength="30" class="form-control"
                     aria-describedby="first_nameHelp">
                 @if ($errors->has('first_name'))
@@ -23,7 +23,7 @@
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                <label for="last_name">Last_name</label>
+                <label for="last_name">Last name</label>
                 <input type="text" value="{{$employee->last_name ?? old('last_name')}}" name="last_name" maxlength="30" class="form-control"
                     aria-describedby="last_nameHelp">
                 @if ($errors->has('last_name'))
@@ -83,7 +83,7 @@
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                <label for="job_id">Function</label>
+                <label for="job_id">Job</label>
                 <select name="job_id" id="job_id" class="form-control">
                     <option value="">- Select one -</option>
                     @foreach($jobs ?? [] as $job)

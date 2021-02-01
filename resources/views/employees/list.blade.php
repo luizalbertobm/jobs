@@ -8,6 +8,7 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Job</th>
             <th>E-mail</th>
             <th>Phone</th>
             <th class="text-right">Actions</th>
@@ -18,6 +19,7 @@
         <tr>
             <td>{{$item->id}}</td>
             <td>{{$item->getFullName()}}</td>
+            <td>{{$item->getJob()->title}}</td>
             <td>{{$item->email}}</td>
             <td>{{$item->phone}}</td>
             <td class="text-right">
