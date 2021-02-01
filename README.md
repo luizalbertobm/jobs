@@ -24,11 +24,11 @@ mv .env.example .env
 ```
 5. Run this command to up docker containers:
 ```bash
-sail up
+vendor/bin/sail up
 ```
 6. So, run database migrations:
 ```bash
-sail artisan migrate
+vendor/bin/sail artisan migrate
 ```
 ## Now just enjoy
 Access `http://localhost/` on your browser.
