@@ -110,6 +110,7 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
-        //
+        $employee->softDelete();
+        return redirect()->back()->with('success_message', 'Created successyfully');
     }
 }

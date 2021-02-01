@@ -18,6 +18,7 @@ class CreateDepartmentsTable extends Migration
             $table->string('name', 30);
             $table->foreignId('manager_id')->constrained('employees');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

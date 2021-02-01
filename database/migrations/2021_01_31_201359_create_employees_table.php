@@ -26,6 +26,7 @@ class CreateEmployeesTable extends Migration
             $table->foreignId('manager_id')->nullable()->constrained('employees');
             $table->foreignId('department_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

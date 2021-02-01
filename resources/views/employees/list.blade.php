@@ -8,7 +8,7 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Job</th>
+            <th>Job Title</th>
             <th>E-mail</th>
             <th>Phone</th>
             <th class="text-right">Actions</th>
@@ -23,11 +23,15 @@
             <td>{{$item->email}}</td>
             <td>{{$item->phone}}</td>
             <td class="text-right">
-                <a class="btn btn-sm btn-secondary" href="{{route('employees.edit', ['employee' => $item->id])}}"><i data-feather="edit"></i></a>
-                <a class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')"
-                    href="{{route('employees.destroy', $item->id)}}">
-                    <i data-feather="trash"></i>
-                </a>
+                <a class="btn btn-sm btn-secondary" href="{{route('employees.edit', ['employee' => $item->id])}}"><i
+                        data-feather="edit"></i></a>
+                <form action="{{ route('employees.destroy', $item->id) }}" class="float-right ml-1" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Are you sure?')">
+                        <i data-feather="trash"></i>
+                    </button>
+                </form>
             </td>
         </tr>
         @endForeach

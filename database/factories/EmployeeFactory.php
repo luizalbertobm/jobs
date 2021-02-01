@@ -24,7 +24,7 @@ class EmployeeFactory extends Factory
         return [
             'first_name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName,
-            'email' => $this->faker->firstName().'@'.$this->faker->freeEmailDomain,
+            'email' => strtolower($this->faker->firstName()).'@'.$this->faker->freeEmailDomain,
             'phone' => $this->faker->e164PhoneNumber,
             'hire_date' => $this->faker->dateTimeThisDecade($max = 'now'),
             'job_id' => 1,

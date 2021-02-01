@@ -19,6 +19,7 @@ class CreateJobsTable extends Migration
             $table->decimal('min_salary');
             $table->decimal('max_salary');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
