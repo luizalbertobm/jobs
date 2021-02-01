@@ -1,3 +1,3 @@
-mv .env.example .env
+heroku run mv .env.example .env
 web: vendor/bin/heroku-php-nginx public/
-php artisan migrate:fresh --seed
+heroku run php artisan migrate:fresh --seed
