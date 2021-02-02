@@ -45,6 +45,6 @@
     </table>
 </div>
 
-{{$entities->onEachSide(-1)->links()}}
+{{$entities->links()}}
 Showing {{$entities->firstItem()}} to {{$entities->lastItem()}} out of {{$entities->total()}}
 @endsection

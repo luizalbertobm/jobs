@@ -38,5 +38,5 @@
     </tbody>
 </table>
 {{$departments->links()}}
-Showing {{$departments->firstItem()}} - {{$departments->lastItem()}} from {{$departments->total()}}
+Showing {{$departments->firstItem()}} to {{$departments->lastItem()}} out of {{$departments->total()}}
 @endsection

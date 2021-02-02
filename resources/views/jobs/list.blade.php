@@ -41,5 +41,5 @@
 </table>
 
 {{$items->links()}}
-Showing {{$items->firstItem()}} - {{$items->lastItem()}} from {{$items->total()}}
+Showing {{$items->firstItem()}} to {{$items->lastItem()}} out of {{$items->total()}}
 @endsection
